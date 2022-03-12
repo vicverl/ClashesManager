@@ -1,0 +1,12 @@
+D:\github\TestPlugin\TestPlugin\bin\2019Release\AdWindows.dll
+D:\github\TestPlugin\TestPlugin\obj\2019Release\TestPlugin.g.cs
+D:\github\TestPlugin\TestPlugin\obj\2019Release\TestPlugin.baml
+D:\github\TestPlugin\TestPlugin\obj\2019Release\TestPlugin.csproj.CoreCompileInputs.cache
+D:\github\TestPlugin\TestPlugin\obj\2019Release\TestPlugin.csproj.CopyComplete
+D:\github\TestPlugin\TestPlugin\bin\2019Release\TestPlugin.dll
+D:\github\TestPlugin\TestPlugin\bin\2019Release\TestPlugin.pdb
+D:\github\TestPlugin\TestPlugin\obj\2019Release\TestPlugin_MarkupCompile.cache
+D:\github\TestPlugin\TestPlugin\obj\2019Release\TestPlugin_MarkupCompile.lref
+D:\github\TestPlugin\TestPlugin\obj\2019Release\TestPlugin.g.resources
+D:\github\TestPlugin\TestPlugin\obj\2019Release\TestPlugin.dll
+D:\github\TestPlugin\TestPlugin\obj\2019Release\TestPlugin.pdb

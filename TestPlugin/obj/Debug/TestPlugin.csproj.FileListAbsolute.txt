@@ -1,0 +1,13 @@
+D:\github\TestPlugin\TestPlugin\obj\Debug\TestPlugin.csproj.AssemblyReference.cache
+D:\github\TestPlugin\TestPlugin\obj\Debug\TestPlugin.g.cs
+D:\github\TestPlugin\TestPlugin\obj\Debug\TestPlugin2_MarkupCompile.cache
+D:\github\TestPlugin\TestPlugin\obj\Debug\TestPlugin2_MarkupCompile.lref
+D:\github\TestPlugin\TestPlugin\bin\Debug\TestPlugin2.dll
+D:\github\TestPlugin\TestPlugin\bin\Debug\TestPlugin2.pdb
+D:\github\TestPlugin\TestPlugin\bin\Debug\AdWindows.dll
+D:\github\TestPlugin\TestPlugin\obj\Debug\TestPlugin.baml
+D:\github\TestPlugin\TestPlugin\obj\Debug\TestPlugin2.g.resources
+D:\github\TestPlugin\TestPlugin\obj\Debug\TestPlugin.csproj.CoreCompileInputs.cache
+D:\github\TestPlugin\TestPlugin\obj\Debug\TestPlugin.csproj.CopyComplete
+D:\github\TestPlugin\TestPlugin\obj\Debug\TestPlugin2.dll
+D:\github\TestPlugin\TestPlugin\obj\Debug\TestPlugin2.pdb
