@@ -1,0 +1,148 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <UseWPF>true</UseWPF>
+        <LangVersion>latest</LangVersion>
+        <PlatformTarget>x64</PlatformTarget>
+        <ImplicitUsings>true</ImplicitUsings>
+        <TargetFramework>net48</TargetFramework>
+        <Configurations>Debug R19;Debug R20;Debug R21;Debug R22;Debug R23</Configurations>
+        <Configurations>$(Configurations);Release R19;Release R20;Release R21;Release R22;Release R23</Configurations>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Debug'))">
+	    <XamlDebuggingInformation>True</XamlDebuggingInformation>
+	    <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <DefineConstants>$(DefineConstants);DEBUG</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('Release'))">
+        <Optimize>true</Optimize>
+        <DebugType>none</DebugType>
+        <DefineConstants>$(DefineConstants);RELEASE</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('R19'))">
+        <RevitVersion>2019</RevitVersion>
+        <DefineConstants>$(DefineConstants);R19</DefineConstants>
+	    <StartAction>Program</StartAction>
+	    <StartProgram>C:\Program Files\Autodesk\Revit 2019\Revit.exe</StartProgram>
+	    <StartArguments>/language ENG</StartArguments>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('R20'))">
+	    <StartAction>Program</StartAction>
+	    <StartProgram>C:\Program Files\Autodesk\Revit 2020\Revit.exe</StartProgram>
+	    <StartArguments>/language ENG</StartArguments>
+		<RevitVersion>2020</RevitVersion>
+        <DefineConstants>$(DefineConstants);R20</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('R21'))">
+	    <StartAction>Program</StartAction>
+	    <StartProgram>C:\Program Files\Autodesk\Revit 2021\Revit.exe</StartProgram>
+	    <StartArguments>/language ENG</StartArguments>
+		<RevitVersion>2021</RevitVersion>
+        <DefineConstants>$(DefineConstants);R21</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('R22'))">
+	    <StartAction>Program</StartAction>
+	    <StartProgram>C:\Program Files\Autodesk\Revit 2022\Revit.exe</StartProgram>
+	    <StartArguments>/language ENG</StartArguments>
+		<RevitVersion>2022</RevitVersion>
+        <DefineConstants>$(DefineConstants);R22</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="$(Configuration.Contains('R23'))">
+	    <StartAction>Program</StartAction>
+	    <StartProgram>C:\Program Files\Autodesk\Revit 2023\Revit.exe</StartProgram>
+	    <StartArguments>/language ENG</StartArguments>
+		<RevitVersion>2023</RevitVersion>
+        <DefineConstants>$(DefineConstants);R23</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup>
+        <Version>$(RevitVersion)</Version>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    </PropertyGroup>
+    <ItemGroup>
+      <None Remove="Resources\Icons\delete.png" />
+      <None Remove="Resources\Icons\RevitLogo.png" />
+      <None Remove="Resources\Icons\RibbonIcon16.png" />
+      <None Remove="Resources\Icons\RibbonIcon32.png" />
+      <None Remove="Resources\Icons\Search.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Nice3point.Revit.Extensions" Version="$(RevitVersion).*" />
+        <PackageReference Include="Nice3point.Revit.Api.RevitAPI" Version="$(RevitVersion).*" />
+        <PackageReference Include="Nice3point.Revit.Api.RevitAPIUI" Version="$(RevitVersion).*" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Using Include="Nice3point.Revit.Extensions" />
+        <Using Include="JetBrains.Annotations" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+        <Resource Include="Resources\Icons\Delete.png" />
+        <Resource Include="Resources\Icons\RevitLogo.png" />
+        <Resource Include="Resources\Icons\RibbonIcon16.png" />
+        <Resource Include="Resources\Icons\RibbonIcon32.png" />
+        <Resource Include="Resources\Icons\Search.png" />
+	</ItemGroup>
+	<ItemGroup>
+		<Reference Include="AutoUpdater">
+			<HintPath>..\..\windows-libraries-AutoUpdater\AutoUpdater\bin\Release\AutoUpdater.dll</HintPath>
+		 <Private>True</Private>
+	</Reference>
+	</ItemGroup>
+    <ItemGroup>
+        <Reference Include="SettingsSerializer">
+	        <HintPath>..\..\windows-libraries-SettingsSerializer\SettingsSerializer\bin\Release\SettingsSerializer.dll</HintPath>
+	        <Private>True</Private>
+        </Reference>
+        <Reference Include="System.Windows.Forms" />
+	</ItemGroup>
+    <ItemGroup>
+      <Compile Update="Resources\Resources.ru-RU.Designer.cs">
+        <DependentUpon>Resources.ru-RU.resx</DependentUpon>
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+      </Compile>
+      <Compile Update="Resources\Resources.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Resources.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Update="Resources\Resources.ru-RU.resx">
+        <LastGenOutput>Resources.ru-RU.Designer.cs</LastGenOutput>
+        <Generator>ResXFileCodeGenerator</Generator>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Resources.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+   
+
+	<PropertyGroup>
+		<PostBuildEvent>
+			echo Configuration: $(Configuration)
+
+			SET ROOTFOLDER=%25ProgramData%25
+			SET PLUGINVERSION=$(Configuration)
+			SET PLUGINVERSION=%25PLUGINVERSION:Debug R=20%25
+			SET PLUGINVERSION=%25PLUGINVERSION:Release R=20%25
+
+			echo Revit Version: %25PLUGINVERSION%25
+
+			SET PARENTFOLDER=%25ROOTFOLDER%25\Autodesk\Revit\Addins\%25PLUGINVERSION%25
+			SET PLUGINFOLDER=%25PARENTFOLDER%25\$(MSBuildProjectName)
+
+			echo Copying results to %PLUGINFOLDER%25
+			if not exist  "%25PLUGINFOLDER%25" mkdir "%25PLUGINFOLDER%25"
+			copy "$(MSBuildProjectDirectory)\*.addin" "%25PARENTFOLDER%25"
+			copy "$(ProjectDir)$(OutDir)*.dll"  "%25PLUGINFOLDER%25"
+
+
+		</PostBuildEvent>
+	</PropertyGroup>
+</Project>

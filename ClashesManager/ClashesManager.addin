@@ -1,0 +1,10 @@
+﻿<RevitAddIns>
+    <AddIn Type="Application">
+        <Name>ClashesManager</Name>
+        <Assembly>Eneca/ClashesManager/ClashesManager.dll</Assembly>
+        <AddInId>6F83CC9B-2ACC-4B09-8FAC-FC7CA204DF5D</AddInId>
+        <FullClassName>ClashesManager.ExternalApplication</FullClassName>
+        <VendorId>Eneca</VendorId>
+        <VendorDescription>Description</VendorDescription>
+    </AddIn>
+</RevitAddIns>
